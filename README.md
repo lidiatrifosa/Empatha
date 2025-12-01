@@ -82,3 +82,18 @@ php artisan db:seed
 ```
 
 Create an admin user via seeder (already included): `AdminUserSeeder` creates `admin@example.com` / `password`.
+
+MySQL configuration (example):
+
+Set your `.env` values accordingly:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=empatha
+DB_USERNAME=root
+DB_PASSWORD=password
+```
+
+Then run migrations and seeder as shown above. If you'd like to use SQLite for quick local testing, set `DB_CONNECTION=sqlite` and create an empty database file.

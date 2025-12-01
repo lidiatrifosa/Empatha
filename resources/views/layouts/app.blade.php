@@ -1,3 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title', 'Empatha')</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#fff7f3;
+            --muted:#fbeedd;
+            --accent:#ffd7c2;
+            --primary:#ffb7a7;
+            --text:#4b4440;
+        }
+        body{background:var(--bg);color:var(--text)}
+        .card{background:var(--muted);border-radius:.5rem;padding:1rem}
+        .btn{background:var(--primary);padding:.5rem 1rem;border-radius:.375rem;color:#3b2f2a}
+    </style>
+</head>
+<body class="min-h-screen font-sans">
+    <nav class="p-4 flex justify-between items-center">
+        <a href="/" class="font-bold text-lg">Empatha</a>
+        <div class="space-x-4">
+            <a href="/dashboard" class="text-sm">Dashboard</a>
+            <a href="/journals" class="text-sm">Journal</a>
+            <a href="/moods" class="text-sm">Mood</a>
+            <a href="/forum" class="text-sm">Forum</a>
+            <a href="/articles" class="text-sm">Articles</a>
+        </div>
+    </nav>
+    <main class="container mx-auto p-4">
+        @if(session('success'))
+            <div class="card mb-4">{{ session('success') }}</div>
+        @endif
+        @yield('content')
+    </main>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
