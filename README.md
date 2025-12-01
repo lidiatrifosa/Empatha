@@ -99,6 +99,31 @@ DB_PASSWORD=password
 Then run migrations and seeder as shown above. If you'd like to use SQLite for quick local testing, set `DB_CONNECTION=sqlite` and create an empty database file.
 
 To create the MySQL database quickly (Windows, MySQL CLI):
+Implemented features
+--------------------
+
+- Authentication: register/login/forgot password/email verification (Breeze-like controllers included).
+- Role-based auth: `user` and `admin` with `role` column on `users`.
+- Journalling: CRUD for personal journals (`/journals`).
+- Mood tracker: create/list mood entries (`/moods`).
+- Forum discussions: create/list/show/delete posts (`/forum`).
+- Self-care articles: list & show for all users; create/delete for admin (`/articles`).
+
+Routes
+------
+- `/` — welcome
+- `/dashboard` — dashboard (auth)
+- `/journals` — Journals CRUD (auth)
+- `/moods` — Mood tracker (auth)
+- `/forum` — Forum (auth)
+- `/articles` — Self-care articles (everyone can view; admin can create)
+
+Notes
+-----
+- Laravel policies are not yet implemented; controllers use simple user ownership checks.
+- The application expects a MySQL database; update `.env` accordingly.
+- If MySQL is unavailable, you can switch to SQLite for quick local testing by setting `DB_CONNECTION=sqlite` in `.env`.
+
 
 ```powershell
 # log in to mysql as root; this will prompt for password if set
