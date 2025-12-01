@@ -27,6 +27,18 @@
             <a href="/moods" class="text-sm">Mood</a>
             <a href="/forum" class="text-sm">Forum</a>
             <a href="/articles" class="text-sm">Articles</a>
+            @auth
+                @if(auth()->user()->role === 'admin')
+                    <a href="/articles/create" class="text-sm">Create Article</a>
+                @endif
+                <form method="post" action="{{ route('logout') }}" style="display:inline">
+                    @csrf
+                    <button type="submit" class="text-sm">Logout</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="text-sm">Login</a>
+                <a href="{{ route('register') }}" class="text-sm">Register</a>
+            @endauth
         </div>
     </nav>
     <main class="container mx-auto p-4">
