@@ -97,3 +97,12 @@ DB_PASSWORD=password
 ```
 
 Then run migrations and seeder as shown above. If you'd like to use SQLite for quick local testing, set `DB_CONNECTION=sqlite` and create an empty database file.
+
+To create the MySQL database quickly (Windows, MySQL CLI):
+
+```powershell
+# log in to mysql as root; this will prompt for password if set
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS empatha CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+```
+
+If your MySQL server uses different credentials or ports, update `.env` accordingly before running `php artisan migrate`.

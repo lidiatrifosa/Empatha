@@ -35,4 +35,11 @@ class ArticleController extends Controller
         SelfCareArticle::create($data);
         return redirect()->route('articles.index')->with('success', 'Article published.');
     }
+
+    public function destroy(SelfCareArticle $article)
+    {
+        if (auth()->user()->role !== 'admin') abort(403);
+        $article->delete();
+        return redirect()->route('articles.index')->with('success', 'Article deleted.');
+    }
 }
