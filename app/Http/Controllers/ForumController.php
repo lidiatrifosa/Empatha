@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\ForumPost;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
     public function index()
     {
-        $posts = ForumPost::latest()->paginate(15);
+        $posts = ForumPost::withCount('comments')->latest()->paginate(15);
         return view('forum.index', compact('posts'));
     }
 
@@ -31,7 +32,19 @@ class ForumController extends Controller
 
     public function show(ForumPost $post)
     {
+        $post->load(['comments.user']);
         return view('forum.show', ['post' => $post]);
+    }
+
+    public function storeComment(Request $request, ForumPost $post)
+    {
+        $data = $request->validate([
+            'body' => 'required|string',
+        ]);
+        $data['user_id'] = auth()->id();
+        $data['forum_post_id'] = $post->id;
+        Comment::create($data);
+        return back()->with('success', 'Komentar berhasil ditambahkan.');
     }
 
     public function destroy(ForumPost $post)

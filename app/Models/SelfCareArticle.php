@@ -15,4 +15,13 @@ class SelfCareArticle extends Model
         'author',
         'published_at',
     ];
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class, 'self_care_article_id');
+    }
 }

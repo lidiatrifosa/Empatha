@@ -33,13 +33,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('forum/create', [ForumController::class, 'create'])->name('forum.create');
     Route::post('forum', [ForumController::class, 'store'])->name('forum.store');
     Route::get('forum/{post}', [ForumController::class, 'show'])->name('forum.show');
+    Route::post('forum/{post}/comment', [ForumController::class, 'storeComment'])->name('forum.comment');
     Route::delete('forum/{post}', [ForumController::class, 'destroy'])->name('forum.destroy');
 });
 
 Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
-Route::get('articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
-Route::middleware([AdminMiddleware::class, 'auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
+    Route::post('articles/{article}/bookmark', [ArticleController::class, 'bookmark'])->name('articles.bookmark');
+    Route::get('bookmarks', [ArticleController::class, 'bookmarks'])->name('articles.bookmarks');
+});
+Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('articles/create', [ArticleController::class, 'create'])->name('articles.create');
     Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
+    Route::get('articles/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+    Route::put('articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
     Route::delete('articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 });
+Route::get('articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
