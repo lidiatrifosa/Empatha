@@ -76,12 +76,12 @@ npm run build
 php artisan serve
 ```
 
-### Login Credentials
-**Admin Account:**
+### 👤 Login Credentials
+**Admin Account:**👤
 - Email: `admin@example.com`
 - Password: `password`
 
-**Test User:**
+**Test User:** 👤
 - Email: `test@example.com`
 - Password: `password`
 
@@ -142,7 +142,7 @@ php artisan serve
 ### Bookmarks
 - `id`, `user_id`, `self_care_article_id`, `timestamps`
 
-## Teknologi
+## Teknologi 
 
 - **Backend:** Laravel 12
 - **Frontend:** Blade Templates, Tailwind CSS
