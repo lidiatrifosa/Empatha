@@ -76,8 +76,8 @@ npm run build
 php artisan serve
 ```
 
-### 👤 Login Credentials
-**Admin Account:**👤
+## 👤 Login Credentials
+**Admin Account:** 👤
 - Email: `admin@example.com`
 - Password: `password`
 
