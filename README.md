@@ -10,6 +10,16 @@ Platform kesehatan mental yang menyediakan ruang aman untuk:
 - Berdiskusi dalam komunitas
 - Membaca artikel self-care
 - Menyimpan artikel favorit
+- 
+
+## Kegunaan
+
+Platform ini berguna untuk:
+- **Individu:** Self-reflection melalui journaling dan mood tracking
+- **Komunitas:** Berbagi pengalaman dan saling mendukung
+- **Edukasi:** Akses artikel kesehatan mental berkualitas
+- **Monitoring:** Melacak perkembangan kesehatan mental
+- **Support System:** Membangun jaringan dukungan mental
 
 ## Fitur Utama
 
@@ -138,17 +148,6 @@ php artisan serve
 - **Frontend:** Blade Templates, Tailwind CSS
 - **Database:** SQLite (default) / MySQL
 - **Authentication:** Laravel Breeze
-- **Font:** Poppins
-- **Color Theme:** Blue (#5577AA, #A7C7E7, #F7F9FB)
-
-## Kegunaan
-
-Platform ini berguna untuk:
-- **Individu:** Self-reflection melalui journaling dan mood tracking
-- **Komunitas:** Berbagi pengalaman dan saling mendukung
-- **Edukasi:** Akses artikel kesehatan mental berkualitas
-- **Monitoring:** Melacak perkembangan kesehatan mental
-- **Support System:** Membangun jaringan dukungan mental
 
 ## Kontribusi
 
