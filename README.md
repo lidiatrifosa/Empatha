@@ -1,133 +1,163 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Empatha - Platform Kesehatan Mental
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Empatha adalah platform web berbasis Laravel yang dirancang untuk mendukung kesehatan mental pengguna melalui berbagai fitur interaktif dan edukatif.
 
-## About Laravel
+## Deskripsi Platform
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Platform kesehatan mental yang menyediakan ruang aman untuk:
+- Menulis jurnal pribadi
+- Melacak suasana hati dengan motivasi
+- Berdiskusi dalam komunitas
+- Membaca artikel self-care
+- Menyimpan artikel favorit
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🔐 Autentikasi & Role Management
+- Registrasi dan login pengguna
+- Role-based access (User & Admin)
+- Password reset dan email verification
 
-## Learning Laravel
+### 📝 Personal Journaling
+- Tulis, edit, dan hapus jurnal pribadi
+- Tampilan daftar jurnal dengan pencarian
+- Jurnal hanya dapat diakses oleh pemilik
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 😊 Mood Tracker
+- Catat suasana hati dengan skor 1-10
+- Pilihan mood: Senang, Sedih, Cemas, Tenang, Marah, Bersemangat
+- Motivational quotes otomatis berdasarkan mood
+- Riwayat mood tracking
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 💬 Forum Komunitas
+- Buat dan baca diskusi komunitas
+- Sistem komentar pada setiap diskusi
+- Hapus postingan sendiri atau sebagai admin
 
-## Laravel Sponsors
+### 🌱 Self-Care Articles
+- Baca artikel edukatif kesehatan mental
+- Bookmark artikel favorit
+- Admin dapat mengelola artikel (CRUD)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Cara Penggunaan
 
-### Premium Partners
+### Setup Project
+```bash
+# Clone repository
+git clone https://github.com/lidiatrifosa/Empatha.git
+cd Empatha
 
--   **[Vehikl](https://vehikl.com)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel)**
--   **[DevSquad](https://devsquad.com/hire-laravel-developers)**
--   **[Redberry](https://redberry.international/laravel-development)**
--   **[Active Logic](https://activelogic.com)**
+# Install dependencies
+composer install
+npm install
 
-## Contributing
+# Setup environment
+cp .env.example .env
+php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-## Database Schema (Overview)
-
-This project uses a relational database (MySQL/Postgres). Key tables created for the mental-health application:
-
--   **users**: default Laravel users table, now with `role` column (`user` or `admin`).
--   **journals**: personal journal entries, columns: `id`, `user_id` (FK -> users), `title`, `content`, `mood_id` (nullable FK -> moods), `timestamps`.
--   **moods**: mood tracker entries, columns: `id`, `user_id` (FK -> users), `mood`, `score`, `note`, `timestamps`.
--   **forum_posts**: community discussion posts, columns: `id`, `user_id` (FK -> users), `title`, `body`, `timestamps`.
--   **self_care_articles**: educational self-care content, columns: `id`, `title`, `body`, `author`, `published_at`, `timestamps`.
-
-Relationships summary:
-
--   One `User` has many `Journal` entries and `Mood` entries.
--   A `Journal` may optionally reference a `Mood` entry.
--   Users can create `ForumPost` records (one-to-many).
-
-Run migrations:
-
-```powershell
-Set-Location C:\Empatha\Empatha; php artisan migrate
+# Setup database
+php artisan migrate
 php artisan db:seed
+
+# Build assets
+npm run build
+
+# Start server
+php artisan serve
 ```
 
-Create an admin user via seeder (already included): `AdminUserSeeder` creates `admin@example.com` / `password`.
+### Login Credentials
+**Admin Account:**
+- Email: `admin@example.com`
+- Password: `password`
 
-MySQL configuration (example):
+**Test User:**
+- Email: `test@example.com`
+- Password: `password`
 
-Set your `.env` values accordingly:
+## List Path/Routes
 
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=empatha
-DB_USERNAME=root
-DB_PASSWORD=password
-```
+### Public Routes
+- `/` - Halaman welcome
+- `/login` - Halaman login
+- `/register` - Halaman registrasi
+- `/articles` - Daftar artikel self-care
+- `/articles/{id}` - Detail artikel
 
-Then run migrations and seeder as shown above. If you'd like to use SQLite for quick local testing, set `DB_CONNECTION=sqlite` and create an empty database file.
+### Authenticated Routes
+- `/dashboard` - Dashboard utama
+- `/profile` - Profil pengguna
 
-To create the MySQL database quickly (Windows, MySQL CLI):
-Implemented features
+#### Jurnal
+- `/journals` - Daftar jurnal pribadi
+- `/journals/create` - Buat jurnal baru
+- `/journals/{id}` - Detail jurnal
+- `/journals/{id}/edit` - Edit jurnal
 
----
+#### Mood Tracker
+- `/moods` - Mood tracker & riwayat
 
--   Authentication: register/login/forgot password/email verification (Breeze-like controllers included).
--   Role-based auth: `user` and `admin` with `role` column on `users`.
--   Journalling: CRUD for personal journals (`/journals`).
--   Mood tracker: create/list mood entries (`/moods`).
--   Forum discussions: create/list/show/delete posts (`/forum`).
--   Self-care articles: list & show for all users; create/delete for admin (`/articles`).
+#### Forum
+- `/forum` - Daftar diskusi forum
+- `/forum/create` - Buat diskusi baru
+- `/forum/{id}` - Detail diskusi & komentar
 
-## Routes
+#### Bookmark
+- `/bookmarks` - Artikel yang disimpan
 
--   `/` — welcome
--   `/dashboard` — dashboard (auth)
--   `/journals` — Journals CRUD (auth)
--   `/moods` — Mood tracker (auth)
--   `/forum` — Forum (auth)
--   `/articles` — Self-care articles (everyone can view; admin can create)
+### Admin Only Routes
+- `/articles/create` - Buat artikel baru
+- `/articles/{id}/edit` - Edit artikel
 
-## Notes
+## Database Schema
 
--   Laravel policies are not yet implemented; controllers use simple user ownership checks.
--   The application expects a MySQL database; update `.env` accordingly.
--   If MySQL is unavailable, you can switch to SQLite for quick local testing by setting `DB_CONNECTION=sqlite` in `.env`.
+### Users
+- `id`, `name`, `email`, `password`, `role` (user/admin)
 
-```powershell
-# log in to mysql as root; this will prompt for password if set
-mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS empatha CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-```
+### Journals
+- `id`, `user_id`, `title`, `content`, `mood_id`, `timestamps`
 
-If your MySQL server uses different credentials or ports, update `.env` accordingly before running `php artisan migrate`.
+### Moods
+- `id`, `user_id`, `mood`, `score`, `note`, `timestamps`
+
+### Forum Posts
+- `id`, `user_id`, `title`, `body`, `timestamps`
+
+### Comments
+- `id`, `user_id`, `forum_post_id`, `body`, `timestamps`
+
+### Self Care Articles
+- `id`, `title`, `body`, `author`, `published_at`, `timestamps`
+
+### Bookmarks
+- `id`, `user_id`, `self_care_article_id`, `timestamps`
+
+## Teknologi
+
+- **Backend:** Laravel 12
+- **Frontend:** Blade Templates, Tailwind CSS
+- **Database:** SQLite (default) / MySQL
+- **Authentication:** Laravel Breeze
+- **Font:** Poppins
+- **Color Theme:** Blue (#5577AA, #A7C7E7, #F7F9FB)
+
+## Kegunaan
+
+Platform ini berguna untuk:
+- **Individu:** Self-reflection melalui journaling dan mood tracking
+- **Komunitas:** Berbagi pengalaman dan saling mendukung
+- **Edukasi:** Akses artikel kesehatan mental berkualitas
+- **Monitoring:** Melacak perkembangan kesehatan mental
+- **Support System:** Membangun jaringan dukungan mental
+
+## Kontribusi
+
+1. Fork repository
+2. Buat branch fitur (`git checkout -b feature/nama-fitur`)
+3. Commit perubahan (`git commit -m 'Tambah fitur'`)
+4. Push ke branch (`git push origin feature/nama-fitur`)
+5. Buat Pull Request
+
+## Lisensi
+
+MIT License - Lihat file LICENSE untuk detail lengkap.
