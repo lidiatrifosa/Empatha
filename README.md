@@ -157,7 +157,3 @@ Platform ini berguna untuk:
 3. Commit perubahan (`git commit -m 'Tambah fitur'`)
 4. Push ke branch (`git push origin feature/nama-fitur`)
 5. Buat Pull Request
-
-## Lisensi
-
-MIT License - Lihat file LICENSE untuk detail lengkap.
