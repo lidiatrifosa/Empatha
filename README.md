@@ -1,16 +1,15 @@
-# Empatha - Platform Kesehatan Mental
+# 🌿 Empatha — Platform Kesehatan Mental Berbasis Web
 
-Empatha adalah platform web berbasis Laravel yang dirancang untuk mendukung kesehatan mental pengguna melalui berbagai fitur interaktif dan edukatif.
+**Empatha** adalah platform kesehatan mental berbasis Laravel yang dirancang untuk membantu pengguna melakukan refleksi diri, melacak suasana hati, dan membangun support system melalui komunitas online. Platform ini memberikan ruang aman dan interaktif untuk mendukung perjalanan kesehatan mental pengguna.
 
 ## Deskripsi Platform
 
-Platform kesehatan mental yang menyediakan ruang aman untuk:
+Empatha menyediakan berbagai fitur untuk mendukung kesehatan mental, di antaranya:
 - Menulis jurnal pribadi
 - Melacak suasana hati dengan motivasi
 - Berdiskusi dalam komunitas
 - Membaca artikel self-care
 - Menyimpan artikel favorit
-- 
 
 ## Kegunaan
 
@@ -49,9 +48,8 @@ Platform ini berguna untuk:
 - Bookmark artikel favorit
 - Admin dapat mengelola artikel (CRUD)
 
-## Cara Penggunaan
+## 🛠️ Instalasi & Setup
 
-### Setup Project
 ```bash
 # Clone repository
 git clone https://github.com/lidiatrifosa/Empatha.git
@@ -72,87 +70,105 @@ php artisan db:seed
 # Build assets
 npm run build
 
-# Start server
+# Start local server
 php artisan serve
 ```
+## 🔑 Akun Login (Testing)
 
-## 👤 Login Credentials
-**Admin Account:** 👤
-- Email: `admin@example.com`
+**Admin**  
+- Email: `admin@example.com`  
 - Password: `password`
 
-**Test User:** 👤
-- Email: `test@example.com`
+**User**  
+- Email: `test@example.com`  
 - Password: `password`
 
-## List Path/Routes
+---
 
-### Public Routes
-- `/` - Halaman welcome
-- `/login` - Halaman login
-- `/register` - Halaman registrasi
-- `/articles` - Daftar artikel self-care
-- `/articles/{id}` - Detail artikel
+## 🧭 Daftar Path / Routes
 
-### Authenticated Routes
-- `/dashboard` - Dashboard utama
-- `/profile` - Profil pengguna
+### 🌐 Public Routes
+- `/` — Welcome page  
+- `/login` — Login  
+- `/register` — Registrasi  
+- `/articles` — Daftar artikel  
+- `/articles/{id}` — Detail artikel  
 
-#### Jurnal
-- `/journals` - Daftar jurnal pribadi
-- `/journals/create` - Buat jurnal baru
-- `/journals/{id}` - Detail jurnal
-- `/journals/{id}/edit` - Edit jurnal
+### 🔒 Authenticated Routes
+- `/dashboard` — Dashboard  
+- `/profile` — Profil pengguna  
 
-#### Mood Tracker
-- `/moods` - Mood tracker & riwayat
+#### 📓 Journals
+- `/journals`  
+- `/journals/create`  
+- `/journals/{id}`  
+- `/journals/{id}/edit`  
 
-#### Forum
-- `/forum` - Daftar diskusi forum
-- `/forum/create` - Buat diskusi baru
-- `/forum/{id}` - Detail diskusi & komentar
+#### 😊 Mood Tracker
+- `/moods` — Mood tracking & riwayat
 
-#### Bookmark
-- `/bookmarks` - Artikel yang disimpan
+#### 💬 Forum
+- `/forum`  
+- `/forum/create`  
+- `/forum/{id}`  
 
-### Admin Only Routes
-- `/articles/create` - Buat artikel baru
-- `/articles/{id}/edit` - Edit artikel
+#### ⭐ Bookmark
+- `/bookmarks`  
 
-## Database Schema
+### 🛠️ Admin Only Routes
+- `/articles/create`  
+- `/articles/{id}/edit`  
 
-### Users
-- `id`, `name`, `email`, `password`, `role` (user/admin)
+---
 
-### Journals
-- `id`, `user_id`, `title`, `content`, `mood_id`, `timestamps`
+## 🗄️ Database Schema
 
-### Moods
-- `id`, `user_id`, `mood`, `score`, `note`, `timestamps`
+### **Users**
+- `id`, `name`, `email`, `password`, `role`
 
-### Forum Posts
-- `id`, `user_id`, `title`, `body`, `timestamps`
+### **Journals**
+- `id`, `user_id`, `title`, `content`, `mood_id`
 
-### Comments
-- `id`, `user_id`, `forum_post_id`, `body`, `timestamps`
+### **Moods**
+- `id`, `user_id`, `mood`, `score`, `note`
 
-### Self Care Articles
-- `id`, `title`, `body`, `author`, `published_at`, `timestamps`
+### **Forum Posts**
+- `id`, `user_id`, `title`, `body`
 
-### Bookmarks
-- `id`, `user_id`, `self_care_article_id`, `timestamps`
+### **Comments**
+- `id`, `user_id`, `forum_post_id`, `body`
 
-## Teknologi 
+### **Self Care Articles**
+- `id`, `title`, `body`, `author`, `published_at`
 
-- **Backend:** Laravel 12
-- **Frontend:** Blade Templates, Tailwind CSS
-- **Database:** SQLite (default) / MySQL
-- **Authentication:** Laravel Breeze
+### **Bookmarks**
+- `id`, `user_id`, `self_care_article_id`
 
-## Kontribusi
+---
 
-1. Fork repository
-2. Buat branch fitur (`git checkout -b feature/nama-fitur`)
-3. Commit perubahan (`git commit -m 'Tambah fitur'`)
-4. Push ke branch (`git push origin feature/nama-fitur`)
-5. Buat Pull Request
+## 🧰 Teknologi yang Digunakan
+
+- **Backend:** Laravel 12  
+- **Frontend:** Blade Templates, Tailwind CSS  
+- **Database:** SQLite / MySQL  
+- **Authentication:** Laravel Breeze  
+
+---
+
+## 🤝 Cara Berkontribusi
+
+1. Fork repository  
+2. Buat branch baru  
+   ```bash
+   git checkout -b feature/nama-fitur
+   ```
+3. Lakukan perubahan yang diperlukan, lalu commit:
+   ```bash
+   git commit -m "Tambah: deskripsi fitur atau perbaikan"
+   ```
+4. Push perubahan ke branch Anda:
+   ```bash
+   git push origin feature/nama-fitur
+   ```
+5. Buat Pull Request ke repository utama dan jelaskan perubahan yang Anda lakukan.
+Kontribusi dalam bentuk fitur baru, perbaikan bug, dokumentasi, atau saran sangat diterima! 🙌
